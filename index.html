@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <title>Front-end with DOM | Widgets </title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
@@ -233,30 +230,9 @@
         </div>
       </div>
     </div>
-
-    <div id="mocha"></div>
-    <script>
-        // the mocha test style to use - we use BDD - Behviour Driven Development
-        mocha.setup('bdd');
-        //ensure the assert function is available
-        var assert = chai.assert;
-        var expect = chai.expect;
-    </script>
-    <!-- Widget functionality logic -->
     <script src="js/calculate-bill.js" charset="utf-8"></script>
     <script src="js/text-bill.js" charset="utf-8"></script>
     <script src="js/radio-bill.js" charset="utf-8"></script>
     <script src="js/settings-bill.js" charset="utf-8"></script>
-    <!-- Widget functionality tests -->
-    <script src="js/test/calculate-bill.tests.js" charset="utf-8"></script>
-    <script src="js/test/text-bill.tests.js" charset="utf-8"></script>
-    <script src="js/test/radio-bill.tests.js" charset="utf-8"></script>
-    <script src="js/test/settings-bill.tests.js" charset="utf-8"></script>
-
-    <script>
-        <!-- configure and run mocha -->
-        mocha.checkLeaks();
-        mocha.run();
-    </script>
   </body>
 </html>

@@ -14,17 +14,13 @@ function totalPhoneBill(callsAndSmses) {
   }
   return totalBill.toFixed(2);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 53ff99562712614c7dbfce70247e4b18dabc4acf
 //link the function to a click event on the calculate button
 calculateBtn.addEventListener('click', function(){
   billTotal.innerHTML = totalPhoneBill(billString.value);
   if (totalPhoneBill(billString.value) > 30.00) {
-    billTotal.style.color = 'red';
+    billTotal.classList.add('danger');
   } else if (totalPhoneBill(billString.value) > 20.00 && totalPhoneBill(billString.value) < 30.00) {
-    billTotal.style.color = 'orange';
+    billTotal.classList.add('warning');
   } else {
     billTotal.style.color = 'inherit';
   }

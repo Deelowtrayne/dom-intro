@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-=======
 var billTypeText = document.querySelector('.billTypeText');
->>>>>>> 53ff99562712614c7dbfce70247e4b18dabc4acf
 var textTotalAddBtn = document.querySelector('.addToBillBtn');
 var callsTotalElem = document.querySelector('.callTotalOne');
 var smsTotalElem = document.querySelector('.smsTotalOne');
 var totalCostElem = document.querySelector('.totalOne');
-<<<<<<< HEAD
 
 function TextBill() {
   var calls = 0;
@@ -72,31 +68,3 @@ function processTextBill() {
 }
 
 textTotalAddBtn.addEventListener('click', processTextBill);
-=======
-var callsTotal = 0;
-var smsTotal = 0;
-
-function textBillTotal(){
-  // get the value entered in the billType textfield
-  var billTypeEntered = billTypeText.value.trim();
-  // update the correct total
-  if (billTypeEntered === "call"){
-      callsTotal += 2.75;
-  }
-  else if (billTypeEntered === "sms"){
-      smsTotal += 0.75;
-  }
-  // change the colour of the total
-  if (callsTotal > 30.00 )
-    callsTotalElem.classList.add('warning');
-  if (callsTotal > 50.00 )
-    callsTotalElem.classList.add('danger');
-  //update the totals that is displayed on the screen.
-  billTypeText.value = "";
-  callsTotalElem.innerHTML = callsTotal.toFixed(2);
-  smsTotalElem.innerHTML = smsTotal.toFixed(2);
-  var totalCost = callsTotal + smsTotal;
-  totalCostElem.innerHTML = totalCost.toFixed(2);
-}
-textTotalAddBtn.addEventListener('click', textBillTotal);
->>>>>>> 53ff99562712614c7dbfce70247e4b18dabc4acf

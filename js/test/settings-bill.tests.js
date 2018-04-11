@@ -7,7 +7,7 @@ describe('Tests the Settings-bill Widget', function(){
   });
   it('Should set new call cost to calculate and return call total (3.45)', function(){
     var billSettings = BillWithSettings();
-    billSettings.callsCost(3.45);
+    billSettings.callCost(3.45);
     billSettings.calculate('call');
     assert.equal(billSettings.callTotal(), 3.45);
   });
@@ -25,21 +25,34 @@ describe('Tests the Settings-bill Widget', function(){
   });
   it('Should set new sms and call cost to calculate and return total bill (4.73)', function(){
     var billSettings = BillWithSettings();
-    billSettings.callsCost(3.28);
+    billSettings.callCost(3.28);
     billSettings.smsCost(1.45);
     billSettings.calculate('call');
     billSettings.calculate('sms');
     assert.equal(billSettings.total(), 4.73);
   });
-  it('Should set new sms and call cost to calculate and return total bill (47.)', function(){
+  it('Should set new sms and call cost to calculate and return (warning) flag', function(){
     var billSettings = BillWithSettings();
-    billSettings.callsCost(3.28);
+    billSettings.callCost(3.28);
     billSettings.smsCost(1.45);
+    billSettings.warning(40.00);
     for (var i = 0; i < 10; i++) {
       billSettings.calculate('call');
       billSettings.calculate('sms');
     }
     billSettings.total()
-    assert.equal(, 47.30);
+    assert.equal(billSettings.totalAlert(), 'warning');
+  });
+  it('Should set new sms and call cost to calculate and return (danger) flag', function(){
+    var billSettings = BillWithSettings();
+    billSettings.callCost(3.28);
+    billSettings.smsCost(1.45);
+    billSettings.warning(50.00);
+    for (var i = 0; i < 15; i++) {
+      billSettings.calculate('call');
+      billSettings.calculate('sms');
+    }
+    billSettings.total()
+    assert.equal(billSettings.totalAlert(), 'danger');
   });
 });
