@@ -112,6 +112,8 @@ function updateSettingsBillDisplays(){
   txtSmsTotalSettings.innerHTML = settingsBill.smsTotal();
   txtTotalSettings.innerHTML = settingsBill.total();
   txtTotalSettings.classList.add(settingsBill.totalAlert());
+  if (settingsBill.totalAlert() === 'danger')
+    settingsAddBtn.disabled = true;
 }
 
 function processSettingsBill() {
