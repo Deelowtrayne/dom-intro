@@ -22,3 +22,14 @@ function processRadioBill() {
 }
 
 radioBillAddBtn.addEventListener('click', processRadioBill);
+
+document.addEventListener("DOMContentLoaded", function(){
+  let radioTemplateSource = document.querySelector('.totalsTemplate').innerHTML;
+  let radioTotalTemplate = Handlebars.compile(radioTemplateSource);
+  let radioDataElem = document.querySelector('#radioBillTable');
+  radioDataElem.innerHTML = radioTotalTemplate({
+    callTotal: "0.00",
+    smsTotal: "0.00",
+    combinedTotals: "0.00"
+  })
+})

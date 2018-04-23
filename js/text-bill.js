@@ -68,3 +68,14 @@ function processTextBill() {
 }
 
 textTotalAddBtn.addEventListener('click', processTextBill);
+
+document.addEventListener('DOMContentLoaded', function(){
+  let textTemplateSource = document.querySelector('.totalsTemplate').innerHTML;
+  let textTotalTemplate = Handlebars.compile(textTemplateSource);
+  let textDataElem = document.querySelector('#textBillTable');
+  textDataElem.innerHTML = textTotalTemplate({
+    callTotal: "0.00",
+    smsTotal: "0.00",
+    combinedTotals: "0.00"
+  })
+});
