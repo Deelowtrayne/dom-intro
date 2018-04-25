@@ -3,9 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>Front-end with DOM | Widgets </title>
-
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script type="text/x-template" class="totalsTemplate">
+      <tr>
+        <td>Call total</td>
+        <td>R<span class="{{callTotalClass}}">{{callTotal}}</span></td>
+      </tr>
+      <tr>
+        <td>SMS total</td>
+        <td>R<span class="{{smsTotalClass}}">{{smsTotal}}</span></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td class="red">R<span class="{{totalBillClass}}">{{combinedTotals}}</span></td>
+      </tr>
+    </script>
+
   </head>
   <body>
     <div class="container">
@@ -93,19 +110,8 @@
           </div>
             <div class="six columns">
               <h5>Totals</h5>
-              <table>
-                <tr>
-                  <td>Call total</td>
-                  <td>R<span class="callTotalOne">0.00</span></td>
-                </tr>
-                <tr>
-                  <td>SMS total</td>
-                  <td>R<span class="smsTotalOne">0.00</span></td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td class="red">R<span class="totalOne">0.00</span></td>
-                </tr>
+              <table id="textBillTable">
+
               </table>
             </div>
           </div>
@@ -149,19 +155,8 @@
             </div>
             <div class="six columns">
                   <h5>Totals</h5>
-                  <table>
-                    <tr>
-                      <td>Call total</td>
-                      <td>R<span class="callTotalTwo">0.00</span></td>
-                    </tr>
-                    <tr>
-                      <td>SMS total</td>
-                      <td>R<span class="smsTotalTwo">0.00</span></td>
-                    </tr>
-                    <tr >
-                      <td>Total</td>
-                      <td class="orange">R<span class="totalTwo">0.00</span></td>
-                    </tr>
+                  <table id="radioBillTable">
+
                   </table>
             </div>
           </div>
