@@ -7,7 +7,6 @@ var totalCostElem = document.querySelector('.totalOne');
 function TextBill() {
   var calls = 0;
   var smses = 0;
-  var total = 0;
 
   function calculateBill(billType) {
     if (billType === "call"){
@@ -26,15 +25,14 @@ function TextBill() {
   }
 
   function totalBill(){
-    total = calls + smses;
-    return parseFloat(total).toFixed(2);
+    return parseFloat(calls+smses).toFixed(2);
   }
 
   function totalPriceAlert(){
     // change the colour of the total
-    if (total > 30.00 && total <= 50.00)
+    if (totalBill() > 30.00 && totalBill() <= 50.00)
       return 'warning';
-    if (total > 50.00)
+    if (totalBill() > 50.00)
       return 'danger';
   }
 
